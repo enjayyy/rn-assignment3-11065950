@@ -1,67 +1,188 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, ScrollView, Image} from 'react-native';
+import React from 'react';
 const profileImage = require('./assets/icon.png');
-export default function App() {
+const filterObject = require('./assets/filter.png');
+const workingWoman = require('./assets/onlinework.png');
+const deskwoman = require('./assets/deskwoman.png');
+import { View, Text, TextInput, ScrollView, TouchableOpacity, Image, StyleSheet } from 'react-native';
+
+const App = () => {
+  const categories = [
+    { title: 'Exercise', tasks: '12 Tasks', image: workingWoman },
+    { title: 'Study', tasks: '12 Tasks', image: deskwoman },
+    { title: '', tasks: '12 Tasks', image: 'https://via.placeholder.com/100'},
+    { title: '', tasks: '2 Tasks', image: 'https://via.placeholder.com/100' },
+    { title: '', tasks: '11 Tasks', image: 'https://via.placeholder.com/100' },
+    { title: '', tasks: '18 Tasks', image: 'https://via.placeholder.com/100' },
+    { title: '', tasks: '9 Tasks', image: 'https://via.placeholder.com/100' },
+    { title: '', tasks: '30 Tasks', image: 'https://via.placeholder.com/100' },
+  ];
+
   return (
-    <ScrollView style={{ backgroundColor:' #F7F0E8' }}>
-      <View style={styles.container}>
-      <Text style={{ fontWeight: "bold", fontSize: 32, marginLeft: 16, marginTop: 69}}>Hello, Devs</Text>
-      <Text style={{marginLeft: 16 }}>14 tasks today</Text>
-      <Image source={profileImage}
-       style={styles.profileImage}/>
-
-      <StatusBar style="auto" />
-
-    <TextInput  style={styles.input}>Search</TextInput>
-
-    <Text style={styles.subhead}>Categories</Text>
-
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.category}>
-
-          </ScrollView>
-    </View>
-
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <View>
+          <Text style={styles.headerText}>Hello, Devs</Text>
+          <Text style={styles.subHeaderText}>14 tasks today</Text>
+        </View>
+        <TouchableOpacity style={styles.profileIcon}>
+          <Image
+            source={profileImage}
+            style={styles.profileImage}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.searchContainer}>
+        <TextInput style={styles.searchInput} placeholder="Search" />
+        <TouchableOpacity style={styles.filterIcon}>
+          <Image
+            source={filterObject} 
+            style={styles.filterImage}
+          />
+        </TouchableOpacity>
+      </View>
+      <Text style={styles.sectionHeader}>Categories</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categories}>
+        {categories.map((category, index) => (
+          <View key={index} style={styles.category}>
+            <View style={styles.categoryTextContainer}>
+              <Text style={styles.categoryText}>{category.title}</Text>
+              <Text style={styles.categoryTasks}>{category.tasks}</Text>
+            </View>
+            <Image
+              source={category.image}
+              style={styles.categoryImage}
+            />
+          </View>
+        ))}
+      </ScrollView>
+      <View style={styles.ongoingTasks}>
+        <Text style={styles.sectionHeader}>Ongoing Task</Text>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Mobile App Development</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Web Development</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Push Ups</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
-
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    fontWeight:40,
     flex: 1,
-    backgroundColor: '#F7F0E8',
-    
+    padding: 16,
+    backgroundColor: '#FAF3EB',
+    paddingTop: 60,
   },
-
-  profileImage:{
-    width:50,
-    height:50,
-    borderRadius:2,
-    
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 30,
   },
-  input: {
-    marginLeft:16,
-    marginTop: 20,
-    backgroundColor:'#FBF9F7',
-    height: 49,
-    width:280,
-    border:1, 
-    borderRadius:30,
-    borderColor:'#ccc',
-    paddingHorizontal:20,
+  headerText: {
+    fontSize: 32,
     fontWeight: 'bold',
-    },
-
-    subhead:{
-      marginLeft:27,
-      marginTop:32,
-      fontSize: 23,
-      backgroundColor: '#F7F0E8',
-
-
-    }
+  },
+  subHeaderText: {
+    fontSize: 14,
+    color: '#888',
+  },
+  profileIcon: {
+    width: 55,
+    height: 55,
+    borderRadius: 25,
+    overflow: 'hidden',
+  },
+  profileImage: {
+    width: '100%',
+    height: '100%',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 40,
+  },
+  searchInput: {
+    flex: 1,
+    height: 50,
+    backgroundColor: '#FFF',
+    borderRadius: 16,
+    paddingHorizontal: 8,
+    marginRight: 20,
+  },
+  filterIcon: {
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F0522F',
+    borderRadius: 16,
+  },
+  filterImage: {
+    width: 50,
+    height: 50,
+  },
+  categories: {
+    flexDirection: 'row',
+    marginBottom: 16, 
+  },
+  category: {
+    width: 200,
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    padding: 18,
+    borderRadius: 10,
+    elevation: 2,
+    marginRight: 18,
+    position: 'relative',
+  },
+  categoryTextContainer: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+  },
+  categoryText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  categoryTasks: {
+    fontSize: 14,
+    color: '#888',
+  },
+  categoryImage: {
+    width: 100,
+    height: 100,
+    marginTop: 40, // Added margin top to create space for text
+    alignSelf: 'center',
+  },
+  ongoingTasks: {
+    marginTop: 24, // Increased margin top for more space
+    marginBottom: 16,
+  },
+  sectionHeader: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  task: {
+    backgroundColor: '#fff',
+    padding: 60,
+    borderColor: '#e8d1ba',
+    borderWidth: 1,
+    borderRadius: 15,
+    marginBottom: 16,
+    elevation: 2,
+  },
+  taskText: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
 });
 
-  
-
+export default App;
