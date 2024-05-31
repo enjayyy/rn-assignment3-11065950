@@ -3,18 +3,26 @@ const profileImage = require('./assets/icon.png');
 const filterObject = require('./assets/filter.png');
 const workingWoman = require('./assets/onlinework.png');
 const deskwoman = require('./assets/deskwoman.png');
+const health = require('./assets/health.jpg');
+const voluntary = require('./assets/voluntary.jpg');
+const mentorship = require('./assets/mentorship.jpg');
+const tutoring = require('./assets/tutoring.jpg');
+const projects = require('./assets/projects.jpg');
+const food = require('./assets/food.jpg');
+
+
 import { View, Text, TextInput, ScrollView, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 const App = () => {
   const categories = [
     { title: 'Exercise', tasks: '12 Tasks', image: workingWoman },
     { title: 'Study', tasks: '12 Tasks', image: deskwoman },
-    { title: '', tasks: '12 Tasks', image: 'https://via.placeholder.com/100'},
-    { title: '', tasks: '2 Tasks', image: 'https://via.placeholder.com/100' },
-    { title: '', tasks: '11 Tasks', image: 'https://via.placeholder.com/100' },
-    { title: '', tasks: '18 Tasks', image: 'https://via.placeholder.com/100' },
-    { title: '', tasks: '9 Tasks', image: 'https://via.placeholder.com/100' },
-    { title: '', tasks: '30 Tasks', image: 'https://via.placeholder.com/100' },
+    { title: 'Health', tasks: '12 Tasks', image: health},
+    { title: 'Voluntary Work', tasks: '2 Tasks', image: voluntary },
+    { title: 'Mentorship', tasks: '11 Tasks', image: mentorship },
+    { title: 'Tutoring', tasks: '18 Tasks', image: tutoring },
+    { title: 'Projects', tasks: '9 Tasks', image: projects },
+    { title: 'Food', tasks: '30 Tasks', image: food },
   ];
 
   return (
@@ -62,6 +70,30 @@ const App = () => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
           <Text style={styles.taskText}>Web Development</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Push Ups</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Push Ups</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Push Ups</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Push Ups</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Push Ups</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Push Ups</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Push Ups</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Push Ups</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
           <Text style={styles.taskText}>Push Ups</Text>
