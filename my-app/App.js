@@ -1,4 +1,7 @@
 import React from 'react';
+import { View, Text, TextInput, ScrollView, TouchableOpacity, Image, StyleSheet, Button, Flatlist } from 'react-native';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+
 const profileImage = require('./assets/icon.png');
 const filterObject = require('./assets/filter.png');
 const workingWoman = require('./assets/onlinework.png');
@@ -9,9 +12,10 @@ const mentorship = require('./assets/mentorship.jpg');
 const tutoring = require('./assets/tutoring.jpg');
 const projects = require('./assets/projects.jpg');
 const food = require('./assets/food.jpg');
+const cook = require('./assets/cook.jpg');
+const gym = require('./assets/gym.jpg');
 
 
-import { View, Text, TextInput, ScrollView, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 const App = () => {
   const categories = [
@@ -23,6 +27,8 @@ const App = () => {
     { title: 'Tutoring', tasks: '18 Tasks', image: tutoring },
     { title: 'Projects', tasks: '9 Tasks', image: projects },
     { title: 'Food', tasks: '30 Tasks', image: food },
+    { title: 'Cook', tasks: '10 Tasks', image: cook },
+    { title: 'Gym', tasks: '4 Tasks', image: gym },
   ];
 
   return (
@@ -40,8 +46,10 @@ const App = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.searchContainer}>
-        <TextInput style={styles.searchInput} placeholder="Search" />
+    
+        <TextInput style={styles.searchInput}>     <Fontisto  name='search' size={15}/> Search</TextInput>
         <TouchableOpacity style={styles.filterIcon}>
+         
           <Image
             source={filterObject} 
             style={styles.filterImage}
@@ -63,6 +71,8 @@ const App = () => {
           </View>
         ))}
       </ScrollView>
+
+
       <View style={styles.ongoingTasks}>
         <Text style={styles.sectionHeader}>Ongoing Task</Text>
         <TouchableOpacity style={styles.task}>
@@ -75,28 +85,46 @@ const App = () => {
           <Text style={styles.taskText}>Push Ups</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
-          <Text style={styles.taskText}>Push Ups</Text>
+          <Text style={styles.taskText}>UI/UX</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
-          <Text style={styles.taskText}>Push Ups</Text>
+          <Text style={styles.taskText}>Fixing Bugs</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
-          <Text style={styles.taskText}>Push Ups</Text>
+          <Text style={styles.taskText}>Reactjs</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
-          <Text style={styles.taskText}>Push Ups</Text>
+          <Text style={styles.taskText}>React Native</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
-          <Text style={styles.taskText}>Push Ups</Text>
+          <Text style={styles.taskText}>Plan Sprints</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
-          <Text style={styles.taskText}>Push Ups</Text>
+          <Text style={styles.taskText}>Tutorials</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
-          <Text style={styles.taskText}>Push Ups</Text>
+          <Text style={styles.taskText}>Algorithms</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.task}>
-          <Text style={styles.taskText}>Push Ups</Text>
+          <Text style={styles.taskText}>User Support</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Database Management</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>3D Object Rendering </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Security Audits</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Resaerch</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Operating System Installation</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.task}>
+          <Text style={styles.taskText}>Documentation</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -142,6 +170,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     height: 50,
+    fontWeight:'bold', 
     backgroundColor: '#FFF',
     borderRadius: 16,
     paddingHorizontal: 8,
@@ -188,8 +217,8 @@ const styles = StyleSheet.create({
     color: '#888',
   },
   categoryImage: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 165,
     marginTop: 40, // Added margin top to create space for text
     alignSelf: 'center',
   },
