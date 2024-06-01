@@ -1,9 +1,9 @@
-## Task Management App
+# Task Management App
 Name: Oji Nana  ID:11065950
 
 The application is designed for managing tasks in various categories.
 
-# Description of Components
+## Description of Components
 
 View: It works like the div tag for creating similarly container-like components for grouping objects. It supports layout with flexbox. 
 
@@ -25,7 +25,4 @@ FlatList: For displaying a scrollable list of data.
 
 
 **Screenshots
-![alt text](5972181557739372125_121.jpg)
-![alt text](5972181557739372124_121.jpg)
-![alt text](5972181557739372126_121.jpg)
-![alt text](5972181557739372123_121.jpg)
+![alt text](5972181557739372125_121.jpg) ![alt text](5972181557739372124_121.jpg) ![alt text](5972181557739372126_121.jpg)   ![alt text](5972181557739372123_121.jpg)
