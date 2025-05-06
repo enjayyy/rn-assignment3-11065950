@@ -1,5 +1,4 @@
 # Task Management App
-Name: Oji Nana  ID:11065950
 
 The application is designed for managing tasks in various categories.
 
